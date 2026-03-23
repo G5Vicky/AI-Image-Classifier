@@ -1,0 +1,56 @@
+# ============================================================
+# AI Image Classifier — Files to ignore in Git
+# ============================================================
+
+# Python bytecode (auto-generated, not needed)
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Virtual environment (too large, everyone creates their own)
+venv/
+.venv/
+env/
+
+# Environment secrets (NEVER commit these — they contain passwords)
+.env
+
+# Model files (too large for Git — download separately)
+models/*.keras
+models/*.h5
+
+# Runtime-generated files (created when app runs)
+static/uploads/*
+static/gradcam/*
+# But keep the placeholder files
+!static/uploads/.gitkeep
+!static/gradcam/.gitkeep
+
+# Contact messages (may contain personal data)
+contact_messages.txt
+
+# Dataset files (too large)
+data/
+dataset/train/
+dataset/test/
+
+# Jupyter notebook checkpoints
+.ipynb_checkpoints/
+
+# Operating system files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# IDE settings
+.vscode/
+.idea/
+*.swp
+
+# Logs
+*.log
+
+# Zip files
+*.zip
+static.zip

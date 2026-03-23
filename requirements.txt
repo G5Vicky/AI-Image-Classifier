@@ -1,0 +1,32 @@
+# ============================================================
+# AI Image Classifier — Python Dependencies
+# Python 3.10 or higher required
+#
+# Install everything:
+#   pip install -r requirements.txt
+# ============================================================
+
+# --- Web Framework ---
+flask==3.0.0              # The web server framework
+werkzeug==3.0.1           # Flask dependency (request/response handling)
+flask-mail==0.10.0        # For the contact form email sending
+gunicorn==21.2.0          # Production web server (used for deployment)
+
+# --- Deep Learning ---
+tensorflow==2.16.1        # The main machine learning framework
+
+# --- Image Processing ---
+numpy==1.26.4             # Arrays and math operations
+opencv-python-headless==4.8.1.78  # Image reading/writing (headless = no GUI needed)
+pillow==10.1.0            # Image loading/conversion
+matplotlib==3.8.2         # Generating the Grad-CAM heatmap figures
+
+# --- ML Utilities ---
+scikit-learn==1.3.2       # Metrics (used for threshold calibration)
+
+# --- Model Download ---
+requests==2.31.0          # HTTP requests
+huggingface_hub==0.21.4   # Download model files from Hugging Face Hub
+
+# --- Development (optional) ---
+python-dotenv==1.0.0      # Load .env file for local development

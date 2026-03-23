@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>AI Image Classifier — Real vs AI-Generated | KITSW</title>
+  <meta name="description" content="Real-time deep learning classifier that detects AI-generated images vs real photographs with Grad-CAM explainability. KITSW Major Project 2024-25."/>
+  <link rel="icon" href="static/assets/img/favicon.png"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Syne:wght@400;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+  <link href="static/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="static/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet"/>
+  <link href="static/assets/vendor/aos/aos.css" rel="stylesheet"/>
+  <link href="static/assets/css/custom.css" rel="stylesheet"/>
+</head>
+<body class="index-page">
+
+  <!-- Header -->
+  <header id="header" class="header">
+    <div class="container-fluid d-flex align-items-center justify-content-between">
+      <a href="{{ url_for('home') }}" class="logo">
+        <i class="bi bi-cpu-fill"></i>
+        <span class="sitename">AI Image Classifier</span>
+      </a>
+      <nav id="navmenu" class="navmenu">
+        <ul>
+          <li><a href="{{ url_for('home') }}" class="active">Home</a></li>
+          <li><a href="{{ url_for('about') }}">About</a></li>
+          <li><a href="{{ url_for('inner_page') }}">Classify</a></li>
+          <li><a href="{{ url_for('services') }}">Hire Me</a></li>
+          <li><a href="{{ url_for('contact') }}">Contact</a></li>
+        </ul>
+        <i class="mobile-nav-toggle bi bi-list"></i>
+      </nav>
+      <div class="header-social-links">
+        <a href="https://github.com/G5Vicky" target="_blank" rel="noopener"><i class="bi bi-github"></i></a>
+        <a href="https://www.linkedin.com/in/gurrapu-vigneshwar-95b26b265" target="_blank" rel="noopener"><i class="bi bi-linkedin"></i></a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- Hero -->
+    <section class="hero section">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-lg-8 text-center" data-aos="fade-up" data-aos-delay="80">
+            <span class="eyebrow">KITSW · U18IT804 · Major Project 2024–25</span>
+            <h2>REAL TIME<br/><span class="underlight">IMAGE CLASSIFIER</span></h2>
+            <p>A deep learning system that detects whether an image is a genuine photograph or AI-generated — powered by EfficientNetB3 with full <strong style="color:#f1f5f9;">Grad-CAM visual explainability</strong>.</p>
+            <div class="d-flex justify-content-center gap-3 flex-wrap mt-1">
+              <a href="{{ url_for('inner_page') }}" class="btn-primary-nn"><i class="bi bi-cpu-fill"></i>Try the Classifier</a>
+              <a href="{{ url_for('about') }}" class="btn-outline-nn"><i class="bi bi-info-circle"></i>About Project</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Stats -->
+    <section class="section pt-0">
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+        <div class="row g-3">
+          <div class="col-6 col-md-3">
+            <div class="stat-card">
+              <span class="stat-num">120K+</span>
+              <p class="stat-label">Training Images</p>
+            </div>
+          </div>
+          <div class="col-6 col-md-3">
+            <div class="stat-card">
+              <span class="stat-num">~91%</span>
+              <p class="stat-label">Model Accuracy</p>
+            </div>
+          </div>
+          <div class="col-6 col-md-3">
+            <div class="stat-card">
+              <span class="stat-num">2</span>
+              <p class="stat-label">AI Models</p>
+            </div>
+          </div>
+          <div class="col-6 col-md-3">
+            <div class="stat-card">
+              <span class="stat-num">XAI</span>
+              <p class="stat-label">Grad-CAM Heatmaps</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- How it works -->
+    <section class="section">
+      <div class="container">
+        <div class="text-center mb-5" data-aos="fade-up">
+          <span class="section-tag">Process</span>
+          <h2 class="section-title">How It Works</h2>
+          <p style="color:var(--t2);max-width:500px;margin:0 auto;">Three steps from image to explainable AI verdict</p>
+        </div>
+        <div class="row g-4">
+          <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
+            <div class="nn-card text-center">
+              <div class="d-flex justify-content-center mb-3">
+                <div style="width:56px;height:56px;background:rgba(99,102,241,.1);border:1px solid rgba(99,102,241,.2);border-radius:16px;display:flex;align-items:center;justify-content:center;font-size:1.6rem;color:#818cf8;">
+                  <i class="bi bi-cloud-arrow-up"></i>
+                </div>
+              </div>
+              <h4 style="font-size:1rem;font-weight:700;margin-bottom:.5rem;">Upload Image</h4>
+              <p style="font-size:.85rem;color:var(--t2);margin:0;">Drag &amp; drop or browse any JPG, PNG, BMP or WebP file up to 16 MB.</p>
+            </div>
+          </div>
+          <div class="col-lg-4" data-aos="fade-up" data-aos-delay="200">
+            <div class="nn-card text-center">
+              <div class="d-flex justify-content-center mb-3">
+                <div style="width:56px;height:56px;background:rgba(6,182,212,.08);border:1px solid rgba(6,182,212,.2);border-radius:16px;display:flex;align-items:center;justify-content:center;font-size:1.6rem;color:#67e8f9;">
+                  <i class="bi bi-cpu"></i>
+                </div>
+              </div>
+              <h4 style="font-size:1rem;font-weight:700;margin-bottom:.5rem;">AI Analysis</h4>
+              <p style="font-size:.85rem;color:var(--t2);margin:0;">EfficientNetB3 extracts deep features trained on 120K CIFAKE images to compute probability.</p>
+            </div>
+          </div>
+          <div class="col-lg-4" data-aos="fade-up" data-aos-delay="300">
+            <div class="nn-card text-center">
+              <div class="d-flex justify-content-center mb-3">
+                <div style="width:56px;height:56px;background:rgba(16,185,129,.08);border:1px solid rgba(16,185,129,.2);border-radius:16px;display:flex;align-items:center;justify-content:center;font-size:1.6rem;color:#6ee7b7;">
+                  <i class="bi bi-fire"></i>
+                </div>
+              </div>
+              <h4 style="font-size:1rem;font-weight:700;margin-bottom:.5rem;">Grad-CAM Result</h4>
+              <p style="font-size:.85rem;color:var(--t2);margin:0;">Instant verdict, confidence score, and heatmap showing exactly which regions drove the decision.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Tech stack -->
+    <section class="section" style="background:var(--bg2);border-top:1px solid var(--border2);border-bottom:1px solid var(--border2);">
+      <div class="container text-center" data-aos="fade-up">
+        <span class="section-tag">Stack</span>
+        <h2 class="section-title mb-4">Technology Stack</h2>
+        <span class="tech-pill"><i class="bi bi-filetype-py me-1"></i>Python 3.10</span>
+        <span class="tech-pill">TensorFlow 2.16</span>
+        <span class="tech-pill">EfficientNetB3</span>
+        <span class="tech-pill">Custom CNN</span>
+        <span class="tech-pill">Grad-CAM XAI</span>
+        <span class="tech-pill">Flask</span>
+        <span class="tech-pill">OpenCV</span>
+        <span class="tech-pill">CIFAKE Dataset</span>
+        <span class="tech-pill">Bootstrap 5</span>
+        <span class="tech-pill">Render.com</span>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="section">
+      <div class="container" data-aos="fade-up">
+        <div class="cta-nn">
+          <span class="section-tag">Ready?</span>
+          <h2 class="section-title mb-2">Detect AI-generated images instantly</h2>
+          <p style="color:var(--t2);max-width:480px;margin:.5rem auto 2rem;">Upload any image and get a transparent, explainable verdict in seconds.</p>
+          <a href="{{ url_for('inner_page') }}" class="btn-primary-nn"><i class="bi bi-arrow-right-circle"></i>Start Classifying</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer id="footer" class="footer">
+    <div class="container">
+      <div class="copyright text-center">
+        <p>© <strong>AI Image Classifier</strong> — KITSW Batch 11 · U18IT804 Major Project 2024–2025</p>
+      </div>
+      <div class="social-links d-flex justify-content-center">
+        <a href="https://github.com/G5Vicky" target="_blank" rel="noopener"><i class="bi bi-github"></i></a>
+        <a href="https://www.linkedin.com/in/gurrapu-vigneshwar-95b26b265" target="_blank" rel="noopener"><i class="bi bi-linkedin"></i></a>
+      </div>
+    </div>
+  </footer>
+
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+  <div id="preloader"><div class="line"></div></div>
+
+  <script src="static/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="static/assets/vendor/aos/aos.js"></script>
+  <script>
+    AOS.init({duration:600,once:true,offset:80});
+    // Preloader
+    window.addEventListener('load',()=>{
+      const p=document.getElementById('preloader');
+      if(p){setTimeout(()=>p.classList.add('loaded'),400);}
+    });
+    // Scroll top
+    const st=document.querySelector('.scroll-top');
+    window.addEventListener('scroll',()=>{st&&st.classList.toggle('active',window.scrollY>100);});
+    // Mobile nav
+    document.querySelector('.mobile-nav-toggle')?.addEventListener('click',function(){
+      document.querySelector('.navmenu').classList.toggle('mobile-nav-active');
+      this.classList.toggle('bi-list');
+      this.classList.toggle('bi-x');
+    });
+  </script>
+</body>
+</html>

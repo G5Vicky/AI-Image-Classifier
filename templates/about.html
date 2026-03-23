@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>About — AI Image Classifier | KITSW Batch 11</title>
+  <link rel="icon" href="static/assets/img/favicon.png"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Syne:wght@400;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+  <link href="static/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="static/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet"/>
+  <link href="static/assets/vendor/aos/aos.css" rel="stylesheet"/>
+  <link href="static/assets/css/custom.css" rel="stylesheet"/>
+</head>
+<body class="about-page">
+
+  <header id="header" class="header">
+    <div class="container-fluid d-flex align-items-center justify-content-between">
+      <a href="{{ url_for('home') }}" class="logo">
+        <i class="bi bi-cpu-fill"></i>
+        <span class="sitename">AI Image Classifier</span>
+      </a>
+      <nav id="navmenu" class="navmenu">
+        <ul>
+          <li><a href="{{ url_for('home') }}">Home</a></li>
+          <li><a href="{{ url_for('about') }}" class="active">About</a></li>
+          <li><a href="{{ url_for('inner_page') }}">Classify</a></li>
+          <li><a href="{{ url_for('services') }}">Hire Me</a></li>
+          <li><a href="{{ url_for('contact') }}">Contact</a></li>
+        </ul>
+        <i class="mobile-nav-toggle bi bi-list"></i>
+      </nav>
+      <div class="header-social-links">
+        <a href="https://github.com/G5Vicky" target="_blank" rel="noopener"><i class="bi bi-github"></i></a>
+        <a href="https://www.linkedin.com/in/gurrapu-vigneshwar-95b26b265" target="_blank" rel="noopener"><i class="bi bi-linkedin"></i></a>
+      </div>
+    </div>
+  </header>
+
+  <div class="page-title">
+    <div class="heading">
+      <div class="container">
+        <div class="row justify-content-center text-center">
+          <div class="col-lg-8" data-aos="fade-up">
+            <span class="eyebrow">Major Project Phase II · U18IT804</span>
+            <h1>About the Project</h1>
+            <p>A deep learning web application developed at KITSW, Kakatiya University, that classifies images as real or AI-generated using EfficientNetB3 with Grad-CAM explainability.</p>
+            <a href="{{ url_for('inner_page') }}" class="cta-btn">Try the Classifier</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <nav class="breadcrumbs">
+      <div class="container">
+        <ol><li><a href="{{ url_for('home') }}">Home</a></li><li class="current">About</li></ol>
+      </div>
+    </nav>
+  </div>
+
+  <main>
+
+    <!-- Project Overview -->
+    <section class="section">
+      <div class="container">
+        <div class="row g-5 align-items-start">
+          <div class="col-lg-7" data-aos="fade-right">
+            <span class="section-tag">Overview</span>
+            <h2 class="section-title mb-3">Project Overview</h2>
+            <p>In an era where AI is capable of generating hyper-realistic images, distinguishing between real and synthetic content has become a critical challenge. This project presents a deep learning-based approach for <strong style="color:var(--t1);">real-time classification of AI-generated images versus real photographs.</strong></p>
+            <p>The system leverages EfficientNetB3 and a Custom CNN trained on the <strong style="color:var(--t1);">CIFAKE dataset</strong> (120,000 images) and integrates Explainable AI — specifically <strong style="color:var(--t1);">Grad-CAM</strong> — to visualise which image regions drove the model's decision.</p>
+            <p>A Flask web application enables users to upload any image and receive instant classification with confidence scores and heatmap overlays.</p>
+            <div class="d-flex flex-wrap gap-1 mt-4">
+              <span class="tech-pill">CNN Architecture</span>
+              <span class="tech-pill">EfficientNetB3</span>
+              <span class="tech-pill">Grad-CAM XAI</span>
+              <span class="tech-pill">CIFAKE Dataset</span>
+              <span class="tech-pill">Flask Web App</span>
+              <span class="tech-pill">Transfer Learning</span>
+            </div>
+          </div>
+          <div class="col-lg-5" data-aos="fade-left">
+            <div class="nn-card">
+              <h5 style="font-family:'Syne',sans-serif;font-weight:700;margin-bottom:1.2rem;font-size:.95rem;color:var(--t1);">
+                <i class="bi bi-info-circle me-2" style="color:var(--v2);"></i>Project Details
+              </h5>
+              <table class="info-table">
+                <tr><td>Course</td><td>U18IT804 Major Project Phase II</td></tr>
+                <tr><td>Institute</td><td>KITSW, Kakatiya University</td></tr>
+                <tr><td>Department</td><td>Information Technology</td></tr>
+                <tr><td>Academic Year</td><td>2024–2025</td></tr>
+                <tr><td>Guide</td><td>Sri. K. Goutham Raju</td></tr>
+                <tr><td>Coordinator</td><td>Sri. M. Kishore</td></tr>
+                <tr><td>HOD</td><td>Dr. T. Senthil Murugan</td></tr>
+                <tr><td>Dataset</td><td>CIFAKE (120K images)</td></tr>
+                <tr><td>Best Accuracy</td><td style="color:var(--g);">~91% (EfficientNetB3)</td></tr>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Team -->
+    <section class="section" style="background:var(--bg2);border-top:1px solid var(--border2);border-bottom:1px solid var(--border2);">
+      <div class="container">
+        <div class="text-center mb-5" data-aos="fade-up">
+          <span class="section-tag">Team</span>
+          <h2 class="section-title">Project Team</h2>
+          <p style="color:var(--t2);">VIII Semester B.Tech IT — Batch 11</p>
+        </div>
+        <div class="row g-4 justify-content-center">
+          <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="100">
+            <div class="team-card">
+              <div class="tc-avatar">GV</div>
+              <span class="tc-roll">B21IT092</span>
+              <div class="tc-name">G. Vigneshwar</div>
+              <p class="tc-role">Team Lead · ML &amp; Backend</p>
+              <div class="mt-2 d-flex justify-content-center gap-2">
+                <a href="https://github.com/G5Vicky" target="_blank" style="color:var(--t2);font-size:.9rem;"><i class="bi bi-github"></i></a>
+                <a href="https://www.linkedin.com/in/gurrapu-vigneshwar-95b26b265" target="_blank" style="color:var(--t2);font-size:.9rem;"><i class="bi bi-linkedin"></i></a>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="150">
+            <div class="team-card">
+              <div class="tc-avatar">CR</div>
+              <span class="tc-roll">B21IT096</span>
+              <div class="tc-name">Ch. Rohini</div>
+              <p class="tc-role">Frontend &amp; UI Design</p>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="200">
+            <div class="team-card">
+              <div class="tc-avatar">BS</div>
+              <span class="tc-roll">B21IT106</span>
+              <div class="tc-name">B. Sumeet</div>
+              <p class="tc-role">Model Training &amp; Evaluation</p>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="250">
+            <div class="team-card">
+              <div class="tc-avatar">ST</div>
+              <span class="tc-roll">B21IT118</span>
+              <div class="tc-name">Shaik Thohid</div>
+              <p class="tc-role">Data Preprocessing &amp; Testing</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Model Performance — NO epoch counts as requested -->
+    <section class="section">
+      <div class="container">
+        <div class="text-center mb-5" data-aos="fade-up">
+          <span class="section-tag">Results</span>
+          <h2 class="section-title">Model Performance</h2>
+          <p style="color:var(--t2);">Comparison of both models evaluated on the CIFAKE test set</p>
+        </div>
+        <div class="row g-4" data-aos="fade-up" data-aos-delay="100">
+          <div class="col-md-6">
+            <div class="perf-card">
+              <h5><i class="bi bi-grid me-2" style="color:#818cf8;"></i>Custom CNN</h5>
+              <div class="perf-row"><span class="pk">Accuracy</span><span class="pv blue">88.12%</span></div>
+              <div class="perf-row"><span class="pk">AUC-ROC</span><span class="pv blue">97.24%</span></div>
+              <div class="perf-row"><span class="pk">F1-Score</span><span class="pv blue">86.90%</span></div>
+              <div class="perf-row"><span class="pk">Parameters</span><span class="pv blue">~12M</span></div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="perf-card winner">
+              <h5>
+                <i class="bi bi-star-fill me-2" style="color:var(--g);"></i>EfficientNetB3
+                <span class="winner-badge">Winner</span>
+              </h5>
+              <div class="perf-row"><span class="pk">Accuracy</span><span class="pv green">~91–94%</span></div>
+              <div class="perf-row"><span class="pk">AUC-ROC</span><span class="pv green">~98%</span></div>
+              <div class="perf-row"><span class="pk">F1-Score</span><span class="pv green">~91%</span></div>
+              <div class="perf-row"><span class="pk">Pretrained</span><span class="pv green">ImageNet</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Reviews Section -->
+    <section class="section" style="background:var(--bg2);border-top:1px solid var(--border2);">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-lg-8" data-aos="fade-up">
+
+            <!-- Post a Review Card -->
+            <div class="nn-card mb-4">
+              <span class="section-tag">Feedback</span>
+              <h3 style="font-family:'Syne',sans-serif;font-weight:700;font-size:1.3rem;margin-bottom:.4rem;">Post a Review</h3>
+              <p style="color:var(--t2);font-size:.85rem;margin-bottom:1.2rem;">Used the classifier? Share your experience — your review will appear below instantly.</p>
+
+              <div class="star-rating" id="star-rating">
+                <i class="bi bi-star-fill" data-val="1"></i>
+                <i class="bi bi-star-fill" data-val="2"></i>
+                <i class="bi bi-star-fill" data-val="3"></i>
+                <i class="bi bi-star-fill" data-val="4"></i>
+                <i class="bi bi-star-fill" data-val="5"></i>
+              </div>
+
+              <form class="form-nn" id="review-form" novalidate>
+                <div class="row g-3">
+                  <div class="col-md-6">
+                    <label>Your Name *</label>
+                    <input type="text" class="form-control" id="rev-name" placeholder="Your name" required/>
+                  </div>
+                  <div class="col-md-6">
+                    <label>Email (optional)</label>
+                    <input type="email" class="form-control" id="rev-email" placeholder="your@email.com"/>
+                  </div>
+                  <div class="col-12">
+                    <label>Your Review *</label>
+                    <textarea class="form-control" id="rev-message" rows="4" placeholder="Share your feedback about the AI image classifier..." required></textarea>
+                  </div>
+                  <div class="col-12">
+                    <button type="submit" class="btn-primary-nn" id="rev-btn" style="font-size:.88rem;padding:.72rem 1.8rem;">
+                      <i class="bi bi-pencil-square me-1"></i>Post a Review
+                    </button>
+                  </div>
+                </div>
+              </form>
+
+              <div class="alert-nn-success mt-3" id="rev-success" style="display:none;">
+                <i class="bi bi-check-circle me-2"></i>Thank you! Your review has been posted below.
+              </div>
+              <div class="alert-nn-error mt-3" id="rev-error" style="display:none;">
+                <i class="bi bi-x-circle me-2"></i><span id="rev-err-text">Failed to post. Please try again.</span>
+              </div>
+            </div>
+
+            <!-- Posted Reviews -->
+            <div id="reviews-wall">
+              <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:1rem;">
+                <h4 style="font-family:'Syne',sans-serif;font-weight:700;font-size:1rem;margin:0;">
+                  <i class="bi bi-chat-quote-fill me-2" style="color:var(--v2);"></i>Community Reviews
+                </h4>
+                <span id="review-count" style="font-family:'JetBrains Mono',monospace;font-size:.65rem;color:var(--t3);"></span>
+              </div>
+              <div id="reviews-list"></div>
+              <div id="reviews-empty" style="text-align:center;padding:2rem;color:var(--t3);font-size:.85rem;display:none;">
+                <i class="bi bi-chat-dots" style="font-size:2rem;display:block;margin-bottom:.5rem;opacity:.4;"></i>
+                No reviews yet — be the first!
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer id="footer" class="footer">
+    <div class="container">
+      <div class="copyright text-center">
+        <p>© <strong>AI Image Classifier</strong> — KITSW Batch 11 · U18IT804 Major Project 2024–2025</p>
+      </div>
+      <div class="social-links d-flex justify-content-center">
+        <a href="https://github.com/G5Vicky" target="_blank" rel="noopener"><i class="bi bi-github"></i></a>
+        <a href="https://www.linkedin.com/in/gurrapu-vigneshwar-95b26b265" target="_blank" rel="noopener"><i class="bi bi-linkedin"></i></a>
+      </div>
+    </div>
+  </footer>
+
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+  <div id="preloader"><div class="line"></div></div>
+
+  <script src="static/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="static/assets/vendor/aos/aos.js"></script>
+  <script>
+    AOS.init({duration:600,once:true,offset:80});
+    window.addEventListener('load',()=>{const p=document.getElementById('preloader');if(p)setTimeout(()=>p.classList.add('loaded'),400);});
+    const st=document.querySelector('.scroll-top');
+    window.addEventListener('scroll',()=>{st&&st.classList.toggle('active',window.scrollY>100);});
+    document.querySelector('.mobile-nav-toggle')?.addEventListener('click',function(){
+      document.querySelector('.navmenu').classList.toggle('mobile-nav-active');
+      this.classList.toggle('bi-list');this.classList.toggle('bi-x');
+    });
+
+    // ── Review Wall ──────────────────────────────────────────────────────
+    const REVIEWS_KEY = 'ai_classifier_reviews';
+    let reviews = [];
+    try { reviews = JSON.parse(sessionStorage.getItem(REVIEWS_KEY) || '[]'); } catch(e){}
+
+    function starsHTML(n) {
+      return Array.from({length:5}, (_,i) =>
+        `<i class="bi bi-star-fill" style="color:${i<n?'#f59e0b':'#1e293b'};font-size:.72rem;"></i>`
+      ).join('');
+    }
+
+    function renderReviews() {
+      const list  = document.getElementById('reviews-list');
+      const empty = document.getElementById('reviews-empty');
+      const count = document.getElementById('review-count');
+      if (!list) return;
+      count.textContent = reviews.length ? `${reviews.length} review${reviews.length>1?'s':''}` : '';
+      if (!reviews.length) { list.innerHTML=''; empty.style.display='block'; return; }
+      empty.style.display='none';
+      list.innerHTML = reviews.slice().reverse().map(r => `
+        <div style="background:var(--bg3);border:1px solid var(--border2);border-radius:14px;padding:1.1rem 1.3rem;margin-bottom:.85rem;">
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:.55rem;">
+            <div style="display:flex;align-items:center;gap:.65rem;">
+              <div style="width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,var(--v),var(--c));display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.9rem;color:#fff;flex-shrink:0;">${r.name.charAt(0).toUpperCase()}</div>
+              <div>
+                <div style="font-weight:600;font-size:.88rem;margin-bottom:2px;">${r.name}</div>
+                <div>${starsHTML(r.rating)}</div>
+              </div>
+            </div>
+            <span style="font-family:'JetBrains Mono',monospace;font-size:.58rem;color:var(--t3);">${r.date}</span>
+          </div>
+          <p style="color:var(--t2);font-size:.84rem;line-height:1.7;margin:0;">${r.message}</p>
+        </div>`).join('');
+    }
+
+    renderReviews();
+
+    // ── Star rating ──
+    let currentRating = 5;
+    const stars = document.querySelectorAll('#star-rating i');
+    function setStars(n, cls) {
+      stars.forEach((s,i) => { s.classList.toggle(cls, i < n); });
+    }
+    setStars(5,'lit');
+    stars.forEach(s => {
+      s.addEventListener('mouseover', () => setStars(+s.dataset.val, 'lit'));
+      s.addEventListener('mouseout',  () => setStars(currentRating, 'lit'));
+      s.addEventListener('click',     () => { currentRating = +s.dataset.val; setStars(currentRating,'lit'); });
+    });
+
+    // ── Review form submit ──
+    document.getElementById('review-form').addEventListener('submit', async function(e) {
+      e.preventDefault();
+      const name    = document.getElementById('rev-name').value.trim();
+      const email   = document.getElementById('rev-email').value.trim() || '(not provided)';
+      const message = document.getElementById('rev-message').value.trim();
+      if (!name || !message) return;
+
+      const btn = document.getElementById('rev-btn');
+      btn.disabled = true;
+      btn.innerHTML = '<i class="bi bi-hourglass-split me-1"></i>Posting...';
+
+      // Add to session reviews & render immediately
+      const now     = new Date();
+      const dateStr = now.toLocaleDateString('en-IN', {day:'2-digit', month:'short', year:'numeric'});
+      reviews.push({ name, rating: currentRating, message, date: dateStr });
+      try { sessionStorage.setItem(REVIEWS_KEY, JSON.stringify(reviews)); } catch(ex){}
+      renderReviews();
+
+      // Also fire to backend (non-blocking)
+      try {
+        const fd = new FormData();
+        fd.append('name',    name);
+        fd.append('email',   email);
+        fd.append('subject', `Review — ${currentRating}/5 stars from ${name}`);
+        fd.append('message', `⭐ Rating: ${currentRating}/5 stars\n\nFrom: ${name}\nEmail: ${email}\n\nReview:\n${message}`);
+        await fetch('/contact-send', {method:'POST', body:fd});
+      } catch(_){}
+
+      document.getElementById('review-form').reset();
+      document.getElementById('rev-success').style.display = 'block';
+      document.getElementById('rev-error').style.display   = 'none';
+      setStars(5,'lit'); currentRating = 5;
+      setTimeout(() => { document.getElementById('rev-success').style.display = 'none'; }, 4000);
+
+      btn.disabled = false;
+      btn.innerHTML = '<i class="bi bi-pencil-square me-1"></i>Post a Review';
+    });
+  </script>
+</body>
+</html>

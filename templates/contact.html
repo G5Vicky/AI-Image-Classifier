@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Contact — AI Image Classifier | KITSW</title>
+  <link rel="icon" href="static/assets/img/favicon.png"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Syne:wght@400;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+  <link href="static/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="static/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet"/>
+  <link href="static/assets/vendor/aos/aos.css" rel="stylesheet"/>
+  <link href="static/assets/css/custom.css" rel="stylesheet"/>
+  <style>
+    /* Contact page specific styles */
+    .contact-hero {
+      padding: 5rem 0 3rem;
+      text-align: center;
+    }
+    .contact-hero .eyebrow {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: .65rem;
+      color: var(--c);
+      text-transform: uppercase;
+      letter-spacing: .25em;
+      display: block;
+      margin-bottom: .8rem;
+    }
+    .contact-hero h1 {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(2.2rem, 5vw, 3.4rem);
+      font-weight: 800;
+      line-height: 1.15;
+      margin-bottom: 1rem;
+    }
+    .contact-hero p {
+      color: var(--t2);
+      font-size: .95rem;
+      max-width: 520px;
+      margin: 0 auto;
+      line-height: 1.8;
+    }
+
+    /* Profile card */
+    .profile-card {
+      background: var(--bg2);
+      border: 1.5px solid var(--border);
+      border-radius: 24px;
+      padding: 2.5rem 2rem 2rem;
+      text-align: center;
+      position: sticky;
+      top: 90px;
+    }
+    .profile-avatar {
+      width: 88px;
+      height: 88px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--v), var(--c));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Syne', sans-serif;
+      font-size: 2.2rem;
+      font-weight: 800;
+      color: #fff;
+      margin: 0 auto 1.2rem;
+      border: 3px solid rgba(99,102,241,.25);
+      box-shadow: 0 0 0 6px rgba(99,102,241,.08);
+    }
+    .profile-name {
+      font-family: 'Syne', sans-serif;
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-bottom: .25rem;
+    }
+    .profile-role {
+      font-size: .8rem;
+      color: var(--t2);
+      margin-bottom: .15rem;
+    }
+    .profile-dept {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: .62rem;
+      color: var(--v2);
+      margin-bottom: 1.5rem;
+      letter-spacing: .04em;
+    }
+    .profile-divider {
+      height: 1px;
+      background: var(--border2);
+      margin: 1.2rem 0;
+    }
+    .profile-stat-row {
+      display: flex;
+      justify-content: space-around;
+      margin-bottom: 1.5rem;
+    }
+    .profile-stat { text-align: center; }
+    .profile-stat-val {
+      font-family: 'Syne', sans-serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--t1);
+    }
+    .profile-stat-key {
+      font-size: .65rem;
+      color: var(--t3);
+      text-transform: uppercase;
+      letter-spacing: .08em;
+    }
+    .social-btn-row {
+      display: flex;
+      gap: .65rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .social-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: .45rem;
+      padding: .5rem 1.15rem;
+      border-radius: 100px;
+      font-size: .78rem;
+      font-weight: 600;
+      border: 1.5px solid var(--border2);
+      background: transparent;
+      color: var(--t2);
+      text-decoration: none;
+      transition: all .25s;
+    }
+    .social-btn:hover {
+      border-color: var(--v);
+      color: var(--v2);
+      background: rgba(99,102,241,.08);
+    }
+    .social-btn.github:hover { border-color: #e2e8f0; color: #e2e8f0; background: rgba(255,255,255,.05); }
+    .social-btn.linkedin:hover { border-color: #0a66c2; color: #60a5fa; background: rgba(10,102,194,.08); }
+    .social-btn.email-btn:hover { border-color: var(--c); color: var(--c); background: rgba(6,182,212,.08); }
+
+    /* Contact detail cards */
+    .contact-detail-grid {
+      display: grid;
+      gap: 1rem;
+    }
+    .contact-detail-card {
+      background: var(--bg2);
+      border: 1px solid var(--border2);
+      border-radius: 18px;
+      padding: 1.3rem 1.5rem;
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      transition: border-color .3s, transform .3s;
+    }
+    .contact-detail-card:hover {
+      border-color: var(--border);
+      transform: translateX(4px);
+    }
+    .cd-icon {
+      width: 42px;
+      height: 42px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      flex-shrink: 0;
+    }
+    .cd-icon.indigo  { background: rgba(99,102,241,.1);  color: var(--v2); border: 1px solid rgba(99,102,241,.2); }
+    .cd-icon.cyan    { background: rgba(6,182,212,.08);   color: var(--c);  border: 1px solid rgba(6,182,212,.2); }
+    .cd-icon.emerald { background: rgba(16,185,129,.08);  color: var(--g);  border: 1px solid rgba(16,185,129,.2); }
+    .cd-icon.amber   { background: rgba(245,158,11,.08);  color: #fbbf24;   border: 1px solid rgba(245,158,11,.2); }
+    .cd-icon.rose    { background: rgba(244,63,94,.08);   color: var(--r);  border: 1px solid rgba(244,63,94,.2); }
+    .cd-icon.slate   { background: rgba(148,163,184,.06); color: var(--t2); border: 1px solid rgba(148,163,184,.12); }
+    .cd-body h6 {
+      font-size: .7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .1em;
+      color: var(--t3);
+      margin-bottom: .25rem;
+    }
+    .cd-body p, .cd-body a {
+      font-size: .88rem;
+      color: var(--t2);
+      margin: 0;
+      line-height: 1.6;
+      text-decoration: none;
+      transition: color .2s;
+    }
+    .cd-body a:hover { color: var(--v2); }
+
+    /* CTA block */
+    .cta-contact {
+      background: linear-gradient(135deg, rgba(99,102,241,.12), rgba(6,182,212,.08));
+      border: 1.5px solid rgba(99,102,241,.2);
+      border-radius: 24px;
+      padding: 2.5rem 2rem;
+      text-align: center;
+      margin-top: 2rem;
+    }
+    .cta-contact h3 {
+      font-family: 'Syne', sans-serif;
+      font-size: 1.4rem;
+      font-weight: 700;
+      margin-bottom: .6rem;
+    }
+    .cta-contact p {
+      color: var(--t2);
+      font-size: .88rem;
+      max-width: 420px;
+      margin: 0 auto 1.8rem;
+      line-height: 1.7;
+    }
+    .cta-btns { display: flex; gap: .8rem; justify-content: center; flex-wrap: wrap; }
+
+    /* Quick links */
+    .quick-links-title {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: .6rem;
+      color: var(--t3);
+      text-transform: uppercase;
+      letter-spacing: .15em;
+      margin-bottom: .8rem;
+    }
+    .quick-link {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: .65rem .9rem;
+      border-radius: 12px;
+      border: 1px solid var(--border2);
+      background: var(--bg3);
+      text-decoration: none;
+      margin-bottom: .5rem;
+      transition: all .22s;
+      color: var(--t2);
+      font-size: .84rem;
+    }
+    .quick-link:hover {
+      border-color: var(--border);
+      color: var(--t1);
+      background: var(--bg4);
+      transform: translateX(3px);
+    }
+    .quick-link i.arrow { color: var(--t3); transition: transform .22s; }
+    .quick-link:hover i.arrow { transform: translateX(4px); color: var(--v2); }
+  </style>
+</head>
+<body class="contact-page">
+
+  <header id="header" class="header">
+    <div class="container-fluid d-flex align-items-center justify-content-between">
+      <a href="{{ url_for('home') }}" class="logo">
+        <i class="bi bi-cpu-fill"></i>
+        <span class="sitename">AI Image Classifier</span>
+      </a>
+      <nav id="navmenu" class="navmenu">
+        <ul>
+          <li><a href="{{ url_for('home') }}">Home</a></li>
+          <li><a href="{{ url_for('about') }}">About</a></li>
+          <li><a href="{{ url_for('inner_page') }}">Classify</a></li>
+          <li><a href="{{ url_for('services') }}">Hire Me</a></li>
+          <li><a href="{{ url_for('contact') }}" class="active">Contact</a></li>
+        </ul>
+        <i class="mobile-nav-toggle bi bi-list"></i>
+      </nav>
+      <div class="header-social-links">
+        <a href="https://github.com/G5Vicky" target="_blank" rel="noopener"><i class="bi bi-github"></i></a>
+        <a href="https://www.linkedin.com/in/gurrapu-vigneshwar-95b26b265" target="_blank" rel="noopener"><i class="bi bi-linkedin"></i></a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- Hero -->
+    <section class="contact-hero">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-lg-7" data-aos="fade-up">
+            <span class="eyebrow">Get in Touch</span>
+            <h1>Let's <span class="underlight">Connect</span></h1>
+            <p>Whether it's about the project, a collaboration idea, or just a question — I'm happy to hear from you. Reach out through any of the channels below.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Main content -->
+    <section class="section pt-0">
+      <div class="container">
+        <div class="row g-4 align-items-start">
+
+          <!-- Left: Profile card -->
+          <div class="col-lg-4" data-aos="fade-right">
+            <div class="profile-card">
+              <div class="profile-avatar">GV</div>
+              <div class="profile-name">G. Vigneshwar</div>
+              <div class="profile-role">B21IT092 · VIII Sem B.Tech IT</div>
+              <div class="profile-dept">KITSW · Dept. of Information Technology</div>
+
+              <div class="profile-stat-row">
+                <div class="profile-stat">
+                  <div class="profile-stat-val">~91%</div>
+                  <div class="profile-stat-key">Model Acc.</div>
+                </div>
+                <div class="profile-stat">
+                  <div class="profile-stat-val">120K+</div>
+                  <div class="profile-stat-key">Images</div>
+                </div>
+                <div class="profile-stat">
+                  <div class="profile-stat-val">XAI</div>
+                  <div class="profile-stat-key">Grad-CAM</div>
+                </div>
+              </div>
+
+              <div class="profile-divider"></div>
+
+              <div class="social-btn-row">
+                <a href="https://github.com/G5Vicky" target="_blank" rel="noopener" class="social-btn github">
+                  <i class="bi bi-github"></i>GitHub
+                </a>
+                <a href="https://www.linkedin.com/in/gurrapu-vigneshwar-95b26b265" target="_blank" rel="noopener" class="social-btn linkedin">
+                  <i class="bi bi-linkedin"></i>LinkedIn
+                </a>
+                <a href="mailto:b21it092@kitsw.ac.in" class="social-btn email-btn">
+                  <i class="bi bi-envelope-fill"></i>Email
+                </a>
+              </div>
+
+              <div class="profile-divider"></div>
+
+              <div class="quick-links-title">Quick Navigation</div>
+              <a href="{{ url_for('inner_page') }}" class="quick-link">
+                <span><i class="bi bi-cpu me-2" style="color:var(--v2);"></i>Try the Classifier</span>
+                <i class="bi bi-arrow-right arrow"></i>
+              </a>
+              <a href="{{ url_for('about') }}" class="quick-link">
+                <span><i class="bi bi-info-circle me-2" style="color:var(--c);"></i>About the Project</span>
+                <i class="bi bi-arrow-right arrow"></i>
+              </a>
+              <a href="{{ url_for('services') }}" class="quick-link">
+                <span><i class="bi bi-briefcase me-2" style="color:var(--g);"></i>Hire Me</span>
+                <i class="bi bi-arrow-right arrow"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- Right: Contact details + CTA -->
+          <div class="col-lg-8" data-aos="fade-left">
+            <span class="section-tag">Details</span>
+            <h2 class="section-title mb-4">Contact Information</h2>
+
+            <div class="contact-detail-grid">
+
+              <div class="contact-detail-card">
+                <div class="cd-icon indigo"><i class="bi bi-envelope-fill"></i></div>
+                <div class="cd-body">
+                  <h6>Email Address</h6>
+                  <a href="mailto:b21it092@kitsw.ac.in">b21it092@kitsw.ac.in</a>
+                </div>
+              </div>
+
+              <div class="contact-detail-card">
+                <div class="cd-icon cyan"><i class="bi bi-github"></i></div>
+                <div class="cd-body">
+                  <h6>GitHub</h6>
+                  <a href="https://github.com/G5Vicky" target="_blank" rel="noopener">github.com/G5Vicky</a>
+                </div>
+              </div>
+
+              <div class="contact-detail-card">
+                <div class="cd-icon emerald"><i class="bi bi-linkedin"></i></div>
+                <div class="cd-body">
+                  <h6>LinkedIn</h6>
+                  <a href="https://www.linkedin.com/in/gurrapu-vigneshwar-95b26b265" target="_blank" rel="noopener">Gurrapu Vigneshwar</a>
+                </div>
+              </div>
+
+              <div class="contact-detail-card">
+                <div class="cd-icon amber"><i class="bi bi-geo-alt-fill"></i></div>
+                <div class="cd-body">
+                  <h6>Institution</h6>
+                  <p>Kakatiya Institute of Technology &amp; Science<br/>Hasanparthy (Mandal), Warangal – 506 015, Telangana, India</p>
+                </div>
+              </div>
+
+              <div class="contact-detail-card">
+                <div class="cd-icon rose"><i class="bi bi-person-fill"></i></div>
+                <div class="cd-body">
+                  <h6>Project Lead</h6>
+                  <p>G. Vigneshwar (B21IT092)<br/>VIII Semester, B.Tech Information Technology, KITSW</p>
+                </div>
+              </div>
+
+              <div class="contact-detail-card">
+                <div class="cd-icon slate"><i class="bi bi-mortarboard-fill"></i></div>
+                <div class="cd-body">
+                  <h6>Project Guide</h6>
+                  <p>Sri. K. Goutham Raju<br/><span style="color:var(--t3);font-size:.78rem;">Assistant Professor, Dept. of Information Technology, KITSW</span></p>
+                </div>
+              </div>
+
+            </div>
+
+            <!-- CTA -->
+            <div class="cta-contact">
+              <h3>Have a project in mind?</h3>
+              <p>Open to internships, collaborations, and freelance opportunities in AI, computer vision, and full-stack development.</p>
+              <div class="cta-btns">
+                <a href="mailto:b21it092@kitsw.ac.in" class="btn-primary-nn">
+                  <i class="bi bi-envelope-fill me-2"></i>Send an Email
+                </a>
+                <a href="https://www.linkedin.com/in/gurrapu-vigneshwar-95b26b265" target="_blank" rel="noopener" class="btn-outline-nn">
+                  <i class="bi bi-linkedin me-2"></i>Connect on LinkedIn
+                </a>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer id="footer" class="footer">
+    <div class="container">
+      <div class="copyright text-center">
+        <p>© <strong>AI Image Classifier</strong> — KITSW Batch 11 · U18IT804 Major Project 2024–2025</p>
+      </div>
+      <div class="social-links d-flex justify-content-center">
+        <a href="https://github.com/G5Vicky" target="_blank" rel="noopener"><i class="bi bi-github"></i></a>
+        <a href="https://www.linkedin.com/in/gurrapu-vigneshwar-95b26b265" target="_blank" rel="noopener"><i class="bi bi-linkedin"></i></a>
+      </div>
+    </div>
+  </footer>
+
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+  <div id="preloader"><div class="line"></div></div>
+
+  <script src="static/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="static/assets/vendor/aos/aos.js"></script>
+  <script>
+    AOS.init({duration:600, once:true, offset:80});
+    window.addEventListener('load', () => {
+      const p = document.getElementById('preloader');
+      if (p) setTimeout(() => p.classList.add('loaded'), 400);
+    });
+    const st = document.querySelector('.scroll-top');
+    window.addEventListener('scroll', () => { st && st.classList.toggle('active', window.scrollY > 100); });
+    document.querySelector('.mobile-nav-toggle')?.addEventListener('click', function() {
+      document.querySelector('.navmenu').classList.toggle('mobile-nav-active');
+      this.classList.toggle('bi-list'); this.classList.toggle('bi-x');
+    });
+  </script>
+</body>
+</html>
