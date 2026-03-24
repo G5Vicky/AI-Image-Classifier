@@ -17,8 +17,9 @@ env/
 .env
 
 # Model files (too large for Git — download separately)
-models/*.keras
-models/*.h5
+model/*.keras
+model/*.h5
+model/*.json
 
 # Runtime-generated files (created when app runs)
 static/uploads/*
