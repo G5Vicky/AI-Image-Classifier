@@ -90,7 +90,7 @@ for module, display, install_cmd in packages:
 print()
 print("Model files:")
 
-model_dir = os.path.join(PROJECT_ROOT, "models")
+model_dir = os.path.join(PROJECT_ROOT, "model")
 
 enb3_path   = os.path.join(model_dir, "efficientnet_model.keras")
 cnn_path    = os.path.join(model_dir, "cnn_model.keras")

@@ -7,9 +7,9 @@ USAGE:
     python scripts/download_models.py
 
 WHAT IT DOES:
-    Downloads two files into the models/ folder:
+    Downloads two files into the model/ folder:
     - efficientnet_model.keras  (~109MB) — Main model used for predictions
-    - model_config.json         (<1KB)   — Already included, but downloads fresh copy
+    - model_config.json         (<1KB)   — downloads fresh copy
 
 WHY MODELS AREN'T IN THE REPO:
     GitHub has a 100MB file size limit. The trained EfficientNetB3 model is 109MB.
@@ -37,7 +37,7 @@ except ImportError:
 
 # ── Configuration ──────────────────────────────────────────────────────────────
 HF_REPO   = "Vicky25july2003/ai-image-classifier-model"
-MODEL_DIR = os.path.join(PROJECT_ROOT, "models")
+MODEL_DIR = os.path.join(PROJECT_ROOT, "model")
 FILES     = [
     ("efficientnet_model.keras", "Primary EfficientNetB3 model (~109MB)"),
     ("model_config.json",        "Model configuration (thresholds, layer names)"),
